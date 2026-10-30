@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://cx8kwt40csihg"]
+
+[ext_resource type="PackedScene" uid="uid://bhm6stjagyap8" path="res://SomeBS/Scenes/grid_based_character.tscn" id="1_ggwj3"]
+[ext_resource type="Script" uid="uid://bluiqhmpfpheo" path="res://SomeBS/Scripts/Managers/turn_manager.gd" id="1_ll77p"]
+
+[node name="Level" type="Node2D" unique_id=2112325660 node_paths=PackedStringArray("actors")]
+script = ExtResource("1_ll77p")
+max_turns = 10
+actors = [NodePath("GridBasedCharacter"), NodePath("GridBasedCharacter2")]
+
+[node name="GridBasedCharacter" parent="." unique_id=807739821 instance=ExtResource("1_ggwj3")]
+
+[node name="GridBasedCharacter2" parent="." unique_id=1122001421 instance=ExtResource("1_ggwj3")]
+position = Vector2(159, 38)

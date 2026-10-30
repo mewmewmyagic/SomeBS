@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://bhm6stjagyap8"]
+
+[ext_resource type="Script" uid="uid://d1elw1g7p4rq4" path="res://SomeBS/Scripts/Players/GridBased/grid_based_player.gd" id="1_gul73"]
+[ext_resource type="Texture2D" uid="uid://hti3yyuuk4pb" path="res://icon.svg" id="2_awm6k"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_crx7y"]
+size = Vector2(16, 16)
+
+[node name="GridBasedCharacter" type="CharacterBody2D" unique_id=807739821 node_paths=PackedStringArray("up", "down", "left", "right", "sprite_2d")]
+script = ExtResource("1_gul73")
+up = NodePath("up")
+down = NodePath("down")
+left = NodePath("left")
+right = NodePath("right")
+sprite_2d = NodePath("Sprite2D")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=667260436]
+scale = Vector2(0.15, 0.15)
+texture = ExtResource("2_awm6k")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=204517239]
+shape = SubResource("RectangleShape2D_crx7y")
+
+[node name="up" type="RayCast2D" parent="." unique_id=975524572]
+position = Vector2(0, -8)
+target_position = Vector2(0, -16)
+hit_from_inside = true
+
+[node name="down" type="RayCast2D" parent="." unique_id=313211297]
+position = Vector2(0, 8)
+target_position = Vector2(0, 16)
+hit_from_inside = true
+
+[node name="left" type="RayCast2D" parent="." unique_id=20237687]
+position = Vector2(-8, 0)
+target_position = Vector2(-16, 0)
+hit_from_inside = true
+
+[node name="right" type="RayCast2D" parent="." unique_id=504323351]
+position = Vector2(8, 0)
+target_position = Vector2(16, 0)
+hit_from_inside = true
