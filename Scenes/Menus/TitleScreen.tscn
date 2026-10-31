@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://gw48ulsevkoy"]
+
+[ext_resource type="Script" uid="uid://x6xbvotwh3y2" path="res://SomeBS/Scripts/Menus/title_screen.gd" id="1_3y1gg"]
+[ext_resource type="PackedScene" uid="uid://bufmjbbc3j01j" path="res://SomeBS/Scenes/Menus/main_menu.tscn" id="2_2phyy"]
+[ext_resource type="PackedScene" uid="uid://csxybsrqctu3y" path="res://SomeBS/Scenes/Menus/settings_menu.tscn" id="2_3y1gg"]
+
+[node name="TitleScreen" type="Control" unique_id=2055459136 node_paths=PackedStringArray("main_menu")]
+layout_mode = 3
+anchors_preset = 0
+mouse_filter = 2
+script = ExtResource("1_3y1gg")
+main_menu = NodePath("CanvasLayer/MainMenu")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1515510397]
+
+[node name="SettingsMenu" parent="CanvasLayer" unique_id=1396882032 instance=ExtResource("2_3y1gg")]
+
+[node name="MainMenu" parent="CanvasLayer" unique_id=1482010316 node_paths=PackedStringArray("settings_menu") instance=ExtResource("2_2phyy")]
+settings_menu = NodePath("../SettingsMenu")

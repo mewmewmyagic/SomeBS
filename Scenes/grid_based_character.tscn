@@ -15,7 +15,8 @@ right = NodePath("right")
 sprite_2d = NodePath("Sprite2D")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=667260436]
-scale = Vector2(0.15, 0.15)
+position = Vector2(-1.9073486e-06, 0)
+scale = Vector2(0.125, 0.125)
 texture = ExtResource("2_awm6k")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=204517239]
@@ -23,20 +24,20 @@ shape = SubResource("RectangleShape2D_crx7y")
 
 [node name="up" type="RayCast2D" parent="." unique_id=975524572]
 position = Vector2(0, -8)
-target_position = Vector2(0, -16)
+target_position = Vector2(0, -8)
 hit_from_inside = true
 
 [node name="down" type="RayCast2D" parent="." unique_id=313211297]
 position = Vector2(0, 8)
-target_position = Vector2(0, 16)
+target_position = Vector2(0, 8)
 hit_from_inside = true
 
 [node name="left" type="RayCast2D" parent="." unique_id=20237687]
 position = Vector2(-8, 0)
-target_position = Vector2(-16, 0)
+target_position = Vector2(-8, 0)
 hit_from_inside = true
 
 [node name="right" type="RayCast2D" parent="." unique_id=504323351]
 position = Vector2(8, 0)
-target_position = Vector2(16, 0)
+target_position = Vector2(8, 0)
 hit_from_inside = true

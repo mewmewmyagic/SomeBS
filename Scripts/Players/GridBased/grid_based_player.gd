@@ -12,30 +12,52 @@ var tween: Tween
 @export var sprite_2d: Sprite2D
 
 func execute() -> void:
-	var dir := Vector2.ZERO
-	while dir == Vector2.ZERO:
+	while true:
 		await get_tree().physics_frame
-		dir = _read_input()
-	move(dir)
-	await tween.finished
+		
+		#waits for input
+		var dir := _read_input()
+		if dir == Vector2.ZERO:
+			continue
+
+		var ray := _get_ray_cast(dir)
+		ray.force_raycast_update()
+
+		# Free tile: walk
+		if not ray.is_colliding():
+			move(dir)
+			await tween.finished
+			return
 
 func _read_input() -> Vector2:
-	for r in [up, down, left, right]:
-		r.force_raycast_update()
-	if Input.is_action_pressed("ui_up") and not up.is_colliding():
+	if Input.is_action_pressed("ui_up"):
 		return Vector2.UP
-	if Input.is_action_pressed("ui_down") and not down.is_colliding():
+	if Input.is_action_pressed("ui_down"):
 		return Vector2.DOWN
-	if Input.is_action_pressed("ui_left") and not left.is_colliding():
+	if Input.is_action_pressed("ui_left"):
 		return Vector2.LEFT
-	if Input.is_action_pressed("ui_right") and not right.is_colliding():
+	if Input.is_action_pressed("ui_right"):
 		return Vector2.RIGHT
 	return Vector2.ZERO
-		
+	
+func _get_ray_cast(dir: Vector2) -> RayCast2D:
+	match dir:
+		Vector2.UP:
+			return up
+		Vector2.DOWN:
+			return down
+		Vector2.LEFT:
+			return left
+		_:
+			return right
+			
 func move(dir: Vector2) -> void:
+	#is the ray cast in same direction as dir colliding with something?
+	# if its colliding with something in group moveable, move that thing in dir
+	#else return
+	print(dir*tile_size)
 	global_position += dir * tile_size
 	sprite_2d.position -= dir * tile_size
-	
 	animate_sprite_movement()
 
 func animate_sprite_movement() -> void:

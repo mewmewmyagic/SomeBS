@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://cqhtwrvd2w8gd"]
+
+[ext_resource type="Script" uid="uid://ulr3qx0q5264" path="res://SomeBS/Scripts/Players/top_down_character_movement.gd" id="1_obdxn"]
+[ext_resource type="Texture2D" uid="uid://hti3yyuuk4pb" path="res://icon.svg" id="2_bikjb"]
+[ext_resource type="Script" uid="uid://syi1vs7da8ve" path="res://SomeBS/Scripts/Players/rotate_to_mouse.gd" id="3_bikjb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_crx7y"]
+
+[node name="Node2D" type="Node2D" unique_id=1577533365]
+
+[node name="Node2D" type="CharacterBody2D" parent="." unique_id=7002076 node_paths=PackedStringArray("sprite")]
+script = ExtResource("1_obdxn")
+sprite = NodePath("Sprite2D")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D" unique_id=2110019593]
+shape = SubResource("RectangleShape2D_crx7y")
+
+[node name="Sprite2D" type="Sprite2D" parent="Node2D" unique_id=1741281644]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("2_bikjb")
+script = ExtResource("3_bikjb")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Node2D/Sprite2D" unique_id=534965366]
+position = Vector2(89.99999, 0)
+scale = Vector2(1.5, 0.25)
+texture = ExtResource("2_bikjb")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1443887989]
