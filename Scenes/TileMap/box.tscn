@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://mwhgs2bgbcpj"]
+
+[ext_resource type="Texture2D" uid="uid://hti3yyuuk4pb" path="res://icon.svg" id="1_n4skw"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_n4skw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_crx7y"]
+
+[node name="Node2D" type="Node2D" unique_id=267175065]
+
+[node name="RigidBody2D" type="RigidBody2D" parent="." unique_id=192002487]
+physics_material_override = SubResource("PhysicsMaterial_n4skw")
+gravity_scale = 0.0
+linear_damp = 3.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D" unique_id=1791583078]
+shape = SubResource("RectangleShape2D_crx7y")
+
+[node name="Box" type="Sprite2D" parent="RigidBody2D" unique_id=2032872209]
+scale = Vector2(0.175, 0.175)
+texture = ExtResource("1_n4skw")

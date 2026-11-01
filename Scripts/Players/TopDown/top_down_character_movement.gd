@@ -7,12 +7,6 @@ extends CharacterBody2D
 @export var friction := 320.0
 @export var sprite: Sprite2D
 
-@export var rotation_acceleration := 20.0
-@export var rotation_friction := 8.0
-
-var angular_velocity := 0.0
-var v := Vector2.RIGHT
-
 func _physics_process(delta: float) -> void:
 	var dir := _read_input()
 
@@ -23,6 +17,13 @@ func _physics_process(delta: float) -> void:
 
 	velocity = velocity.limit_length(max_speed)
 	move_and_slide()
+	
+	for i in get_slide_collision_count():
+		var collision = get_slide_collision(i)
+		var body = collision.get_collider()
+
+		if body is RigidBody2D:
+			body.apply_central_impulse(-collision.get_normal() * 25)
 
 
 func _read_input() -> Vector2:

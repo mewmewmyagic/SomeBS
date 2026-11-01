@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://oant8do7hdqa"]
+
+[ext_resource type="Script" uid="uid://s7646b840so4" path="res://SomeBS/Scripts/Players/Platformer/pocong.gd" id="1_2miqp"]
+[ext_resource type="Texture2D" uid="uid://hti3yyuuk4pb" path="res://icon.svg" id="2_2m7hf"]
+[ext_resource type="Script" uid="uid://bkbo8yi2v85h6" path="res://SomeBS/Scripts/Players/Platformer/StateMachine/state_machine.gd" id="3_2m7hf"]
+[ext_resource type="Script" uid="uid://cp28j10hgoo2q" path="res://SomeBS/Scripts/Players/Platformer/StateMachine/grounded_state.gd" id="4_juvyv"]
+[ext_resource type="Script" uid="uid://didn2mkkleaso" path="res://SomeBS/Scripts/Players/Platformer/StateMachine/airborne_state.gd" id="5_dsol6"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_crx7y"]
+
+[node name="Node2D" type="RigidBody2D" unique_id=2119266974]
+script = ExtResource("1_2miqp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1823811545]
+shape = SubResource("CapsuleShape2D_crx7y")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=270067132]
+scale = Vector2(0.1, 0.2)
+texture = ExtResource("2_2m7hf")
+
+[node name="StateMachine" type="Node" parent="." unique_id=1901337676 node_paths=PackedStringArray("initial_state")]
+script = ExtResource("3_2m7hf")
+initial_state = NodePath("GroundedState")
+
+[node name="GroundedState" type="Node" parent="StateMachine" unique_id=2081649931 node_paths=PackedStringArray("body")]
+script = ExtResource("4_juvyv")
+body = NodePath("../..")
+
+[node name="AirborneState" type="Node" parent="StateMachine" unique_id=1541174242]
+script = ExtResource("5_dsol6")

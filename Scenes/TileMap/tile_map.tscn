@@ -1,0 +1,16 @@
+[gd_scene format=4 uid="uid://dxos3guw25sf7"]
+
+[ext_resource type="PackedScene" uid="uid://mwhgs2bgbcpj" path="res://SomeBS/Scenes/TileMap/box.tscn" id="1_1lfoe"]
+
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_i6o2g"]
+scenes/1/scene = ExtResource("1_1lfoe")
+
+[sub_resource type="TileSet" id="TileSet_crx7y"]
+sources/0 = SubResource("TileSetScenesCollectionSource_i6o2g")
+
+[node name="TileMap" type="Node2D" unique_id=2119702081]
+position = Vector2(237, 118)
+
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=453471968]
+tile_map_data = PackedByteArray("AAD+//7/AAAAAAAAAQABAP//AAAAAAAAAQABAAIAAAAAAAAAAQD9/wEAAAAAAAAAAQD8/wQAAAAAAAAAAQABAAYAAAAAAAAAAQAFAAMAAAAAAAAAAQAHAAAAAAAAAAAAAQA=")
+tile_set = SubResource("TileSet_crx7y")

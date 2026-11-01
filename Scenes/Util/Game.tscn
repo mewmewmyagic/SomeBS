@@ -1,14 +1,22 @@
 [gd_scene format=3 uid="uid://bq3fwxrjafw14"]
 
+[ext_resource type="Script" uid="uid://deakyqgok38pq" path="res://SomeBS/Scripts/Utils/game.gd" id="1_cllay"]
 [ext_resource type="Script" uid="uid://b15fe7qg2nklx" path="res://SomeBS/Scripts/game.gd" id="1_ygocl"]
-[ext_resource type="PackedScene" uid="uid://cqhtwrvd2w8gd" path="res://SomeBS/Scenes/top_down_character.tscn" id="3_lednd"]
+[ext_resource type="PackedScene" uid="uid://dxos3guw25sf7" path="res://SomeBS/Scenes/TileMap/tile_map.tscn" id="2_n2t3e"]
 [ext_resource type="PackedScene" uid="uid://bv6cwlfnjyhhq" path="res://SomeBS/Scenes/Menus/pause_menu.tscn" id="3_orb1i"]
 [ext_resource type="PackedScene" uid="uid://csxybsrqctu3y" path="res://SomeBS/Scenes/Menus/settings_menu.tscn" id="4_n2t3e"]
+[ext_resource type="PackedScene" uid="uid://oant8do7hdqa" path="res://SomeBS/Scenes/pocong.tscn" id="6_cllay"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_crx7y"]
+distance = -368.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cllay"]
+size = Vector2(120, 20)
 
 [node name="Game" type="Node" unique_id=659955639]
+script = ExtResource("1_cllay")
 
-[node name="Node2D" parent="." unique_id=1577533365 instance=ExtResource("3_lednd")]
-position = Vector2(321, 180)
+[node name="TileMap" parent="." unique_id=2119702081 instance=ExtResource("2_n2t3e")]
 
 [node name="Menus" type="CanvasLayer" parent="." unique_id=1368576628 node_paths=PackedStringArray("pause_menu")]
 process_mode = 3
@@ -16,7 +24,24 @@ script = ExtResource("1_ygocl")
 pause_menu = NodePath("PauseMenu")
 
 [node name="PauseMenu" parent="Menus" unique_id=137189048 node_paths=PackedStringArray("settings_menu") instance=ExtResource("3_orb1i")]
+visible = false
 settings_menu = NodePath("../SettingsMenu")
 main_menu = "uid://gw48ulsevkoy"
 
 [node name="SettingsMenu" parent="Menus" unique_id=1396882032 instance=ExtResource("4_n2t3e")]
+visible = false
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=601288061]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=162388189]
+position = Vector2(292, -11)
+shape = SubResource("WorldBoundaryShape2D_crx7y")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="." unique_id=560607468]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2" unique_id=421691222]
+position = Vector2(445, 302)
+shape = SubResource("RectangleShape2D_cllay")
+
+[node name="Node2D" parent="." unique_id=2119266974 instance=ExtResource("6_cllay")]
+position = Vector2(282, 312)
