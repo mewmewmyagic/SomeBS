@@ -9,6 +9,7 @@
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_crx7y"]
 
 [node name="Node2D" type="RigidBody2D" unique_id=2119266974]
+gravity_scale = 0.5
 script = ExtResource("1_2miqp")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1823811545]

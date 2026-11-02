@@ -26,7 +26,7 @@ func on_transition_requested(new_state_path: String) -> void:
 	else:
 		push_error("StateMachine: State '%s' not found or is not a State." % new_state_path)
 
-func _unhandled_input(event: InputEvent) -> void:
+func _input(event: InputEvent) -> void:
 	if current_state:
 		current_state.on_input(event)
 

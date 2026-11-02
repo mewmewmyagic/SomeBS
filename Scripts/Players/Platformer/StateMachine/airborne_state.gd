@@ -2,8 +2,7 @@ extends PlayerState
 @export var max_jump_impulse: float = 600.0
 
 func enter() -> void:
-	body.center_of_mass_mode = RigidBody2D.CENTER_OF_MASS_MODE_CUSTOM
-	body.center_of_mass = Vector2(0, -20)
+	body.center_of_mass_mode = RigidBody2D.CENTER_OF_MASS_MODE_AUTO
 
 func physics_process(delta: float) -> void:
 	if body.get_contact_count() > 0:
