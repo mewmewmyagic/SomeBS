@@ -29,3 +29,5 @@ body = NodePath("../..")
 
 [node name="AirborneState" type="Node" parent="StateMachine" unique_id=1541174242]
 script = ExtResource("5_dsol6")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1194542094]
