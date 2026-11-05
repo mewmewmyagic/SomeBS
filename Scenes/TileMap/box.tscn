@@ -5,17 +5,16 @@
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_n4skw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_crx7y"]
+size = Vector2(16, 16)
 
 [node name="Node2D" type="Node2D" unique_id=267175065]
 
-[node name="RigidBody2D" type="RigidBody2D" parent="." unique_id=192002487]
+[node name="RigidBody2D" type="StaticBody2D" parent="." unique_id=176459147]
 physics_material_override = SubResource("PhysicsMaterial_n4skw")
-gravity_scale = 0.0
-linear_damp = 3.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D" unique_id=1791583078]
 shape = SubResource("RectangleShape2D_crx7y")
 
 [node name="Box" type="Sprite2D" parent="RigidBody2D" unique_id=2032872209]
-scale = Vector2(0.175, 0.175)
+scale = Vector2(0.125, 0.125)
 texture = ExtResource("1_n4skw")

@@ -1,5 +1,5 @@
 extends State
-class_name PlayerState
+class_name 
 
 @export var body: RigidBody2D
 

@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://dxos3guw25sf7" path="res://SomeBS/Scenes/TileMap/tile_map.tscn" id="2_n2t3e"]
 [ext_resource type="PackedScene" uid="uid://bv6cwlfnjyhhq" path="res://SomeBS/Scenes/Menus/pause_menu.tscn" id="3_orb1i"]
 [ext_resource type="PackedScene" uid="uid://csxybsrqctu3y" path="res://SomeBS/Scenes/Menus/settings_menu.tscn" id="4_n2t3e"]
-[ext_resource type="PackedScene" uid="uid://oant8do7hdqa" path="res://SomeBS/Scenes/pocong.tscn" id="6_cllay"]
+[ext_resource type="PackedScene" uid="uid://cqhtwrvd2w8gd" path="res://SomeBS/Scenes/top_down_character.tscn" id="6_cllay"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_crx7y"]
 distance = -368.0
@@ -43,5 +43,4 @@ shape = SubResource("WorldBoundaryShape2D_crx7y")
 position = Vector2(445, 302)
 shape = SubResource("RectangleShape2D_cllay")
 
-[node name="Node2D" parent="." unique_id=2119266974 instance=ExtResource("6_cllay")]
-position = Vector2(282, 312)
+[node name="Node2D" parent="." unique_id=1577533365 instance=ExtResource("6_cllay")]

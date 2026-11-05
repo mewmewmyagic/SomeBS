@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://dl4mlpoc6a8oo"]
+
+[ext_resource type="Script" uid="uid://dgyqc1048tqmd" path="res://SomeBS/Scripts/Interctables/door.gd" id="1_6sp7t"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_crx7y"]
+radius = 25.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_crx7y"]
+size = Vector2(20, 2)
+
+[node name="Door" type="Node2D" unique_id=1204780845 node_paths=PackedStringArray("cooldown", "door_hitbox")]
+script = ExtResource("1_6sp7t")
+cooldown = NodePath("Timer")
+door_hitbox = NodePath("DoorHitbox")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1458525670]
+
+[node name="InteractArea" type="Area2D" parent="." unique_id=676966674]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractArea" unique_id=1335978434]
+shape = SubResource("CircleShape2D_crx7y")
+
+[node name="DoorHitbox" type="StaticBody2D" parent="." unique_id=1722902104]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DoorHitbox" unique_id=43291636]
+shape = SubResource("RectangleShape2D_crx7y")
+
+[node name="Timer" type="Timer" parent="." unique_id=847817295]
+wait_time = 0.5
+one_shot = true
+
+[connection signal="body_entered" from="InteractArea" to="." method="_on_interact_area_body_entered"]
+[connection signal="body_exited" from="InteractArea" to="." method="_on_interact_area_body_exited"]
