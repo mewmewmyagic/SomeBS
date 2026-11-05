@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://by668vbq3rtpt"]
+
+[ext_resource type="Script" uid="uid://b7pdj8l6kk7gj" path="res://SomeBS/Scripts/Globals/sfx_manager.gd" id="1_vvxpy"]
+[ext_resource type="AudioStream" uid="uid://baetn12c785c8" path="res://SomeBS/Noise/SFX/hydraulic_up.wav" id="2_51ivj"]
+[ext_resource type="AudioStream" uid="uid://bweaig41kv608" path="res://SomeBS/Noise/SFX/hydraulic_down.wav" id="3_08uih"]
+
+[node name="SfxManagerScene" type="Node" unique_id=44761081]
+script = ExtResource("1_vvxpy")
+sounds = Dictionary[String, AudioStream]({
+"jump": ExtResource("2_51ivj"),
+"land": ExtResource("3_08uih")
+})

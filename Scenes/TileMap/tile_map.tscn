@@ -1,0 +1,18 @@
+[gd_scene format=4 uid="uid://dxos3guw25sf7"]
+
+[ext_resource type="PackedScene" uid="uid://mwhgs2bgbcpj" path="res://SomeBS/Scenes/TileMap/box.tscn" id="1_1lfoe"]
+[ext_resource type="PackedScene" uid="uid://dl4mlpoc6a8oo" path="res://SomeBS/Scenes/Interactables/door.tscn" id="2_sh4f2"]
+
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_i6o2g"]
+scenes/1/scene = ExtResource("1_1lfoe")
+scenes/2/scene = ExtResource("2_sh4f2")
+
+[sub_resource type="TileSet" id="TileSet_crx7y"]
+sources/0 = SubResource("TileSetScenesCollectionSource_i6o2g")
+
+[node name="TileMap" type="Node2D" unique_id=2119702081]
+position = Vector2(237, 118)
+
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=453471968]
+tile_map_data = PackedByteArray("AAD8/wQAAAAAAAAAAQAAAAQAAAAAAAAAAgD//wQAAAAAAAAAAQD+/wQAAAAAAAAAAQD9/wQAAAAAAAAAAQABAAQAAAAAAAAAAQACAAQAAAAAAAAAAQADAAQAAAAAAAAAAQD7/wQAAAAAAAAAAQAEAAQAAAAAAAAAAQAFAAQAAAAAAAAAAQAFAAUAAAAAAAAAAQAFAAYAAAAAAAAAAQAFAAcAAAAAAAAAAQAFAAgAAAAAAAAAAQAEAAgAAAAAAAAAAQADAAgAAAAAAAAAAQACAAgAAAAAAAAAAQABAAgAAAAAAAAAAQAAAAgAAAAAAAAAAQD//wgAAAAAAAAAAQD+/wgAAAAAAAAAAQD9/wgAAAAAAAAAAQD8/wgAAAAAAAAAAQD7/wgAAAAAAAAAAQD7/wcAAAAAAAAAAQD7/wYAAAAAAAAAAQD7/wUAAAAAAAAAAQA=")
+tile_set = SubResource("TileSet_crx7y")

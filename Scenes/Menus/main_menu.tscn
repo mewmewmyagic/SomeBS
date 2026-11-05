@@ -1,0 +1,44 @@
+[gd_scene format=3 uid="uid://bufmjbbc3j01j"]
+
+[ext_resource type="Script" uid="uid://1y232t0hddik" path="res://SomeBS/Scripts/Menus/main_menu.gd" id="1_wk462"]
+
+[node name="MainMenu" type="Control" unique_id=1482010316 node_paths=PackedStringArray("start_button", "settings_button", "quit_button")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_wk462")
+start_button = NodePath("Buttons/StartButton")
+settings_button = NodePath("Buttons/Settings")
+quit_button = NodePath("Buttons/Quit")
+next_scene = "uid://bq3fwxrjafw14"
+
+[node name="Title" type="Label" parent="." unique_id=50674960]
+layout_mode = 0
+offset_left = 273.0
+offset_top = 8.0
+offset_right = 395.0
+offset_bottom = 31.0
+text = "Awesome game"
+
+[node name="Buttons" type="VBoxContainer" parent="." unique_id=122936154]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 256.0
+offset_right = 76.0
+offset_bottom = 357.0
+
+[node name="StartButton" type="Button" parent="Buttons" unique_id=1485826484]
+layout_mode = 2
+text = "Start"
+
+[node name="Settings" type="Button" parent="Buttons" unique_id=581297464]
+layout_mode = 2
+text = "Settings"
+
+[node name="Quit" type="Button" parent="Buttons" unique_id=1174184107]
+layout_mode = 2
+text = "Quit
+"
