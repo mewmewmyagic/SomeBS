@@ -1,5 +1,4 @@
-extends PlayerState
-
+extends TopDownState
 func process(_delta: float) -> void:
 	if Input.get_vector("Left", "Right", "Up", "Down") != Vector2.ZERO:
 		if Input.is_action_pressed("Shift"):

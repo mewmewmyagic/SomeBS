@@ -1,5 +1,5 @@
 extends State
-class_name 
+class_name DurumaState
 
 @export var body: RigidBody2D
 

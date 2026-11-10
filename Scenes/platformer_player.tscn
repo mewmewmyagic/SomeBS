@@ -1,0 +1,59 @@
+[gd_scene format=3 uid="uid://dq4jj7dby0ox5"]
+
+[ext_resource type="Script" uid="uid://bg4shu6gaj2o0" path="res://SomeBS/Scripts/Players/Platformer/platformer.gd" id="1_516ur"]
+[ext_resource type="Script" uid="uid://bkbo8yi2v85h6" path="res://SomeBS/Scripts/Players/StateMachine/state_machine.gd" id="2_y600n"]
+[ext_resource type="Script" uid="uid://svd3j6ajqlv3" path="res://SomeBS/Scripts/Players/StateMachine/platformer_state/idle_state.gd" id="3_2uj6m"]
+[ext_resource type="Script" uid="uid://duaieqiw7umpc" path="res://SomeBS/Scripts/Players/StateMachine/platformer_state/walking_state.gd" id="4_5eoww"]
+[ext_resource type="Script" uid="uid://bhm75cqg5d3bf" path="res://SomeBS/Scripts/Players/StateMachine/platformer_state/sprinting_state.gd" id="5_3gnab"]
+[ext_resource type="Script" uid="uid://dgkekxodmeo60" path="res://SomeBS/Scripts/Players/StateMachine/platformer_state/jumping_state.gd" id="6_opkb4"]
+[ext_resource type="Script" uid="uid://dj7yaruj6wuoy" path="res://SomeBS/Scripts/Players/StateMachine/platformer_state/falling_state.gd" id="7_y600n"]
+[ext_resource type="Script" uid="uid://caejkgdxs0oi4" path="res://SomeBS/Scenes/weapon_controller.gd" id="8_2uj6m"]
+[ext_resource type="Script" uid="uid://dy7y58nxu2icv" path="res://SomeBS/Scripts/Players/StateMachine/platformer_state/wall_state.gd" id="8_3gnab"]
+[ext_resource type="Texture2D" uid="uid://hti3yyuuk4pb" path="res://icon.svg" id="9_5eoww"]
+[ext_resource type="PackedScene" uid="uid://o7mdh6mhe1qf" path="res://SomeBS/Scenes/Weapons/shuriken.tscn" id="11_opkb4"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_crx7y"]
+
+[node name="Platformer" type="CharacterBody2D" unique_id=1730178925 node_paths=PackedStringArray("sprite")]
+script = ExtResource("1_516ur")
+sprite = NodePath("Sprite2D")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=976185401]
+shape = SubResource("CapsuleShape2D_crx7y")
+
+[node name="StateMachine" type="Node" parent="." unique_id=1046475250 node_paths=PackedStringArray("initial_state", "character_body")]
+script = ExtResource("2_y600n")
+initial_state = NodePath("IdleState")
+character_body = NodePath("..")
+
+[node name="IdleState" type="Node" parent="StateMachine" unique_id=1387039519]
+script = ExtResource("3_2uj6m")
+
+[node name="WalkingState" type="Node" parent="StateMachine" unique_id=543696248]
+script = ExtResource("4_5eoww")
+
+[node name="RunningState" type="Node" parent="StateMachine" unique_id=1194137263]
+script = ExtResource("5_3gnab")
+
+[node name="JumpingState" type="Node" parent="StateMachine" unique_id=664364365]
+script = ExtResource("6_opkb4")
+
+[node name="FallingState" type="Node" parent="StateMachine" unique_id=762495306]
+script = ExtResource("7_y600n")
+
+[node name="WallState" type="Node" parent="StateMachine" unique_id=387163130]
+script = ExtResource("8_3gnab")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=64160742]
+position = Vector2(-4.4861622e-08, 1.0263144)
+rotation = 1.5707964
+scale = Vector2(0.25139803, 0.17253254)
+texture = ExtResource("9_5eoww")
+
+[node name="WeaponController" type="Node2D" parent="Sprite2D" unique_id=415689232 node_paths=PackedStringArray("body")]
+position = Vector2(-4.0824304, -86.94012)
+rotation = -1.5707964
+scale = Vector2(5.796008, 3.977756)
+script = ExtResource("8_2uj6m")
+projectile = ExtResource("11_opkb4")
+body = NodePath("../..")

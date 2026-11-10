@@ -1,4 +1,4 @@
 extends State
-class_name PlayerState
+class_name TopDownState
 
 @export var body: TopDownPlayer

@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://o7mdh6mhe1qf"]
+
+[ext_resource type="Script" uid="uid://cq0x1tvsadhcb" path="res://SomeBS/Scripts/Players/Weapons/shuriken.gd" id="1_8x30y"]
+[ext_resource type="Texture2D" uid="uid://hti3yyuuk4pb" path="res://icon.svg" id="2_8f30a"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8x30y"]
+radius = 5.0
+
+[node name="Shuriken" type="StaticBody2D" unique_id=2007320529]
+script = ExtResource("1_8x30y")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1412005840]
+shape = SubResource("CircleShape2D_8x30y")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1005694305]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("2_8f30a")

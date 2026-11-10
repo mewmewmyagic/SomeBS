@@ -2,9 +2,9 @@
 
 [ext_resource type="Script" uid="uid://s7646b840so4" path="res://SomeBS/Scripts/Players/Platformer/pocong.gd" id="1_2miqp"]
 [ext_resource type="Texture2D" uid="uid://hti3yyuuk4pb" path="res://icon.svg" id="2_2m7hf"]
-[ext_resource type="Script" uid="uid://bkbo8yi2v85h6" path="res://SomeBS/Scripts/Players/Platformer/StateMachine/state_machine.gd" id="3_2m7hf"]
-[ext_resource type="Script" uid="uid://cp28j10hgoo2q" path="res://SomeBS/Scripts/Players/Platformer/StateMachine/bouncing_states/grounded_state.gd" id="4_juvyv"]
-[ext_resource type="Script" uid="uid://didn2mkkleaso" path="res://SomeBS/Scripts/Players/Platformer/StateMachine/bouncing_states/airborne_state.gd" id="5_dsol6"]
+[ext_resource type="Script" uid="uid://bkbo8yi2v85h6" path="res://SomeBS/Scripts/Players/StateMachine/state_machine.gd" id="3_2m7hf"]
+[ext_resource type="Script" uid="uid://cp28j10hgoo2q" path="res://SomeBS/Scripts/Players/StateMachine/bouncing_states/grounded_state.gd" id="4_juvyv"]
+[ext_resource type="Script" uid="uid://didn2mkkleaso" path="res://SomeBS/Scripts/Players/StateMachine/bouncing_states/airborne_state.gd" id="5_dsol6"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_crx7y"]
 

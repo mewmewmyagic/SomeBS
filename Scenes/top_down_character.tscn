@@ -3,10 +3,13 @@
 [ext_resource type="Script" uid="uid://ulr3qx0q5264" path="res://SomeBS/Scripts/Players/TopDown/top_down_character_movement.gd" id="1_obdxn"]
 [ext_resource type="Texture2D" uid="uid://hti3yyuuk4pb" path="res://icon.svg" id="2_bikjb"]
 [ext_resource type="Script" uid="uid://syi1vs7da8ve" path="res://SomeBS/Scripts/Players/rotate_to_mouse.gd" id="3_bikjb"]
-[ext_resource type="Script" uid="uid://bkbo8yi2v85h6" path="res://SomeBS/Scripts/Players/Platformer/StateMachine/state_machine.gd" id="4_scg6u"]
-[ext_resource type="Script" uid="uid://c4mncmj83ljev" path="res://SomeBS/Scripts/Players/Platformer/StateMachine/top_down_state/running_state.gd" id="5_5h218"]
-[ext_resource type="Script" uid="uid://hle5ge7lboq3" path="res://SomeBS/Scripts/Players/Platformer/StateMachine/top_down_state/idle_state.gd" id="5_scg6u"]
-[ext_resource type="Script" uid="uid://dxvh752484px2" path="res://SomeBS/Scripts/Players/Platformer/StateMachine/top_down_state/walking_state.gd" id="6_5h218"]
+[ext_resource type="Script" uid="uid://tpbuy15q33cd" path="res://SomeBS/Scripts/Stuff/shoot.gd" id="4_5bsse"]
+[ext_resource type="Script" uid="uid://bkbo8yi2v85h6" path="res://SomeBS/Scripts/Players/StateMachine/state_machine.gd" id="4_scg6u"]
+[ext_resource type="Script" uid="uid://c4mncmj83ljev" path="res://SomeBS/Scripts/Players/StateMachine/top_down_state/running_state.gd" id="5_5h218"]
+[ext_resource type="PackedScene" uid="uid://g83iwbe2vp6y" path="res://SomeBS/Scenes/Stuff/bullet.tscn" id="5_r4yi6"]
+[ext_resource type="Script" uid="uid://hle5ge7lboq3" path="res://SomeBS/Scripts/Players/StateMachine/top_down_state/idle_state.gd" id="5_scg6u"]
+[ext_resource type="AudioStream" uid="uid://dxho57mop58ie" path="res://SomeBS/Noise/SFX/harsh_thud.wav" id="6_3o8h3"]
+[ext_resource type="Script" uid="uid://dxvh752484px2" path="res://SomeBS/Scripts/Players/StateMachine/top_down_state/walking_state.gd" id="6_5h218"]
 [ext_resource type="AudioStream" uid="uid://0juq87a4ek5m" path="res://SomeBS/Noise/SFX/foley_footstep_vinyl_4.wav" id="8_0fg5q"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_crx7y"]
@@ -30,7 +33,17 @@ position = Vector2(89.99999, 0)
 scale = Vector2(1.5, 0.25)
 texture = ExtResource("2_bikjb")
 
-[node name="Camera2D" type="Camera2D" parent="." unique_id=1443887989]
+[node name="Node" type="Node2D" parent="Sprite2D/Sprite2D2" unique_id=965380227 node_paths=PackedStringArray("gun_shot_sound")]
+position = Vector2(66.66667, 0)
+script = ExtResource("4_5bsse")
+projectile = ExtResource("5_r4yi6")
+speed = 800.0
+fire_delay = 0.05
+gun_shot_sound = NodePath("HydraulicUp")
+
+[node name="HydraulicUp" type="AudioStreamPlayer" parent="Sprite2D/Sprite2D2/Node" unique_id=264789842]
+stream = ExtResource("6_3o8h3")
+bus = &"SFX"
 
 [node name="StateMachine" type="Node" parent="." unique_id=364036599 node_paths=PackedStringArray("initial_state", "character_body")]
 script = ExtResource("4_scg6u")

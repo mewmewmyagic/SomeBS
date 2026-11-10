@@ -5,13 +5,16 @@
 [ext_resource type="PackedScene" uid="uid://dxos3guw25sf7" path="res://SomeBS/Scenes/TileMap/tile_map.tscn" id="2_n2t3e"]
 [ext_resource type="PackedScene" uid="uid://bv6cwlfnjyhhq" path="res://SomeBS/Scenes/Menus/pause_menu.tscn" id="3_orb1i"]
 [ext_resource type="PackedScene" uid="uid://csxybsrqctu3y" path="res://SomeBS/Scenes/Menus/settings_menu.tscn" id="4_n2t3e"]
-[ext_resource type="PackedScene" uid="uid://cqhtwrvd2w8gd" path="res://SomeBS/Scenes/top_down_character.tscn" id="6_cllay"]
+[ext_resource type="Script" uid="uid://vt23bcvpnf6x" path="res://SomeBS/Scripts/Stuff/camera.gd" id="7_50mcd"]
+[ext_resource type="PackedScene" uid="uid://ds0q8ka84j23s" path="res://SomeBS/Scenes/Stuff/score_tracker.tscn" id="8_doeyv"]
+[ext_resource type="PackedScene" uid="uid://b1pow2blyr107" path="res://SomeBS/Scenes/Stuff/coin.tscn" id="9_8i88c"]
+[ext_resource type="PackedScene" uid="uid://dq4jj7dby0ox5" path="res://SomeBS/Scenes/platformer_player.tscn" id="9_ltp1u"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_crx7y"]
 distance = -368.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cllay"]
-size = Vector2(120, 20)
+size = Vector2(1011, 20)
 
 [node name="Game" type="Node" unique_id=659955639]
 script = ExtResource("1_cllay")
@@ -22,6 +25,8 @@ script = ExtResource("1_cllay")
 process_mode = 3
 script = ExtResource("1_ygocl")
 pause_menu = NodePath("PauseMenu")
+
+[node name="ScoreTracker" parent="Menus" unique_id=2006126958 instance=ExtResource("8_doeyv")]
 
 [node name="PauseMenu" parent="Menus" unique_id=137189048 node_paths=PackedStringArray("settings_menu") instance=ExtResource("3_orb1i")]
 visible = false
@@ -40,7 +45,17 @@ shape = SubResource("WorldBoundaryShape2D_crx7y")
 [node name="StaticBody2D2" type="StaticBody2D" parent="." unique_id=560607468]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2" unique_id=421691222]
-position = Vector2(445, 302)
+position = Vector2(890.5, 302)
 shape = SubResource("RectangleShape2D_cllay")
 
-[node name="Node2D" parent="." unique_id=1577533365 instance=ExtResource("6_cllay")]
+[node name="Camera2D" type="Camera2D" parent="." unique_id=628719387 node_paths=PackedStringArray("parent")]
+script = ExtResource("7_50mcd")
+parent = NodePath("../Platformer")
+
+[node name="Coin" parent="." unique_id=86375229 instance=ExtResource("9_8i88c")]
+position = Vector2(465, 140)
+
+[node name="Coin2" parent="." unique_id=2034051513 instance=ExtResource("9_8i88c")]
+position = Vector2(280, 228)
+
+[node name="Platformer" parent="." unique_id=1730178925 instance=ExtResource("9_ltp1u")]

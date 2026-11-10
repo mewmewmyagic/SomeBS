@@ -2,7 +2,7 @@ class_name StateMachine
 extends Node
 
 @export var initial_state: State
-@export var character_body: TopDownPlayer
+@export var character_body: PlatformerPlayer
 
 var current_state: State
 var states: Dictionary = {} # StringName -> State

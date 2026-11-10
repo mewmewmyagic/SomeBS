@@ -2,9 +2,9 @@ extends CharacterBody2D
 class_name TopDownPlayer
 
 @export var walk_speed: float = 150
-@export var run_speed: float = 300
-@export var accel: float = 600
-@export var deaccel: float = 600
+@export var run_speed: float = 225
+@export var accel: float = 1200
+@export var deaccel: float = 1200
 
 @export var footsteps_player: AudioStreamPlayer
 

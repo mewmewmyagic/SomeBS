@@ -1,4 +1,4 @@
-extends PlayerState
+extends DurumaState
 @export var max_jump_impulse: float = 600.0
 
 func enter() -> void:

@@ -1,4 +1,4 @@
-extends PlayerState
+extends DurumaState
 
 @export var min_jump_impulse: float = 200.0
 @export var max_jump_impulse: float = 400.0

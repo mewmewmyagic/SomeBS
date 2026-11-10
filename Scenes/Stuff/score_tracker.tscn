@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://ds0q8ka84j23s"]
+
+[ext_resource type="Script" uid="uid://b433hio5mlbtb" path="res://SomeBS/Scripts/Stuff/score_tracker.gd" id="1_7xi8k"]
+
+[node name="ScoreTracker" type="RichTextLabel" unique_id=2006126958]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "100"
+script = ExtResource("1_7xi8k")

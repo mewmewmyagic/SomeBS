@@ -1,10 +1,4 @@
-extends PlayerState
-
-func enter() -> void:
-	print("youre moving")
-
-func exit() -> void:
-	print("youre not")
+extends TopDownState
 
 var input_dir: Vector2
 
